@@ -19,7 +19,7 @@ public class CityController {
     @GetMapping("/getCurrentConditionsWeatherByCityName/{cityName}")
     public String getCurrentConditionsWeatherByCityName(@PathVariable String cityName)
     {
-        System.out.println("test");
+
         return cityService.getCurrentConditionsWeatherByCityName(cityName);
     }
 
@@ -27,6 +27,31 @@ public class CityController {
     public String getCurrentConditionsWeatherByCityCode(@PathVariable String locationCode)
     {
         return cityService.getCurrentConditionsWeatherByCityCode(locationCode);
+    }
+
+
+    @GetMapping( "/get1HourHourlyForecastsByName/{cityName}")
+    public String get1HourHourlyForecasts(@PathVariable String cityName)
+    {
+        return cityService.get1HourHourlyForecasts(cityName);
+    }
+
+    @GetMapping( "/get12HourHourlyForecastsByName/{cityName}")
+    public String get12HourHourlyForecasts(@PathVariable String cityName)
+    {
+        return cityService.get12HourHourlyForecasts(cityName);
+    }
+
+    @GetMapping( "/get1DayDailyForecastsByName/{cityName}")
+    public String get1DayDailyForecasts(@PathVariable String cityName)
+    {
+        return cityService.get1DayDailyForecasts(cityName);
+    }
+
+    @GetMapping( "/get5DayDailyForecastsByName/{cityName}")
+    public String get5DayDailyForecasts(@PathVariable String cityName)
+    {
+        return cityService.get5DayDailyForecasts(cityName);
     }
 
 

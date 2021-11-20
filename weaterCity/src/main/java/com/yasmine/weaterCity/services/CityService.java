@@ -48,11 +48,10 @@ public class CityService {
 
     public String getCurrentConditionsWeatherByCityCode(@PathVariable String locationCode)
     {
-        String response = restTemplate.exchange("http://dataservice.accuweather.com/currentconditions/v1/{locationCode}?apikey="+apiKey+"&language=fr-fr&details=false",
+        String response = restTemplate.exchange(apiWebsite+"currentconditions/v1/{locationCode}?apikey="+apiKey+"&language=fr-fr&details=false",
                 HttpMethod.GET, null, new ParameterizedTypeReference<String>() {}, locationCode).getBody();
         return response;
     }
-
 
 
 
@@ -60,9 +59,57 @@ public class CityService {
     {
         int cityKey = this.getCitykey(cityName);
 
-        String response = restTemplate.exchange("http://dataservice.accuweather.com/currentconditions/v1/{cityKey}?apikey="+apiKey+"&language=fr-fr&details=false",
+        String response = restTemplate.exchange(apiWebsite+"currentconditions/v1/{cityKey}?apikey="+apiKey+"&language=fr-fr&details=false",
                 HttpMethod.GET, null, new ParameterizedTypeReference<String>() {}, cityKey).getBody();
         return response;
+    }
+
+
+    public String get1HourHourlyForecasts(String cityName)
+    {
+        int citykey = this.getCitykey(cityName);
+        String response = restTemplate.exchange(apiWebsite+"forecasts/v1/hourly/1hour/{citykey}?apikey="+apiKey+"&language=en-us&details=false",
+                HttpMethod.GET, null, new ParameterizedTypeReference<String>() {}, citykey).getBody();
+        return response;
+    }
+
+    public String get12HourHourlyForecasts(String cityName)
+    {
+        int citykey = this.getCitykey(cityName);
+        String response = restTemplate.exchange(apiWebsite+"forecasts/v1/hourly/12hour/{citykey}?apikey="+apiKey+"&language=en-us&details=false",
+                HttpMethod.GET, null, new ParameterizedTypeReference<String>() {}, citykey).getBody();
+        return response;
+    }
+
+
+
+
+    public String get1DayDailyForecasts(String cityName)
+    {
+        int citykey = this.getCitykey(cityName);
+        String response = restTemplate.exchange(apiWebsite+"forecasts/v1/daily/1day/{citykey}?apikey="+apiKey+"&language=en-us&details=false",
+                HttpMethod.GET, null, new ParameterizedTypeReference<String>() {}, citykey).getBody();
+        return response;
+
+    }
+
+    public String get5DayDailyForecasts(String cityName)
+    {
+        int citykey = this.getCitykey(cityName);
+        String response = restTemplate.exchange(apiWebsite+"forecasts/v1/daily/5day/{citykey}?apikey="+citykey+"&language=en-us&details=false",
+                HttpMethod.GET, null, new ParameterizedTypeReference<String>() {}, citykey).getBody();
+        return response;
+
+    }
+
+
+    public String get10DayDailyForecasts(String cityName)
+    {
+        int citykey = this.getCitykey(cityName);
+        String response = restTemplate.exchange(apiWebsite+"forecasts/v1/daily/10sday/{citykey}?apikey="+citykey+"&language=en-us&details=false",
+                HttpMethod.GET, null, new ParameterizedTypeReference<String>() {}, citykey).getBody();
+        return response;
+
     }
 
 
