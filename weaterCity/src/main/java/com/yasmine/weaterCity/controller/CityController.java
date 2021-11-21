@@ -119,15 +119,63 @@ public class CityController {
 
 
 
+    @ApiOperation(value = "Get 1 day  of Weather Alarm by Name of the city   ", response = CityController.class, tags = "get1DayOfWeatherAlarms")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successfully "),
+            @ApiResponse(code = 401, message = " Not authorized"),
+            @ApiResponse(code = 403, message = "Access forbidden"),
+            @ApiResponse(code = 404, message = "Page not found")
+    }
+    )
+    @GetMapping( "/get1DayOfWeatherAlarmsByName/{cityName}")
+    public String get1DayOfWeatherAlarms(@PathVariable String cityName)
+    {
+        return cityService.get1DayOfWeatherAlarms(cityName);
+    }
 
 
+    @ApiOperation(value = "Get 5 day  of Weather Alarm by Name of the city   ", response = CityController.class, tags = "get5DayOfWeatherAlarms")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successfully "),
+            @ApiResponse(code = 401, message = " Not authorized"),
+            @ApiResponse(code = 403, message = "Access forbidden"),
+            @ApiResponse(code = 404, message = "Page not found")
+    }
+    )
+    @GetMapping( "/get5DayOfWeatherAlarmsByName/{cityName}")
+    public String get5DayOfWeatherAlarms(@PathVariable String cityName)
+    {
+        return cityService.get5DayOfWeatherAlarms(cityName);
+    }
 
 
+    @ApiOperation(value = "Get 10 day  of Weather Alarm by Name of the city   ", response = CityController.class, tags = "get10DayOfWeatherAlarms")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successfully "),
+            @ApiResponse(code = 401, message = " Not authorized"),
+            @ApiResponse(code = 403, message = "Access forbidden"),
+            @ApiResponse(code = 404, message = "Page not found")
+    }
+    )
+    @GetMapping( "/get10DayOfWeatherAlarmsByName/{cityName}")
+    public String get1ODayOfWeatherAlarms(@PathVariable String cityName)
+    {
+        return cityService.get10DayOfWeatherAlarms(cityName);
+    }
 
-
-
-
-
+    @ApiOperation(value = "Get 15 day  of Weather Alarm by Name of the city   ", response = CityController.class, tags = "get15DayOfWeatherAlarms")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successfully "),
+            @ApiResponse(code = 401, message = " Not authorized"),
+            @ApiResponse(code = 403, message = "Access forbidden"),
+            @ApiResponse(code = 404, message = "Page not found")
+    }
+    )
+    @GetMapping( "/get15DayOfWeatherAlarmsByName/{cityName}")
+    public String get15DayOfWeatherAlarms(@PathVariable String cityName)
+    {
+        return cityService.get15DayOfWeatherAlarms(cityName);
+    }
 
 
 

@@ -114,6 +114,48 @@ public class CityService {
 
 
 
+    public String get1DayOfWeatherAlarms(String cityName)
+    {
+        int citykey = this.getCitykey(cityName);
+        String response = restTemplate.exchange(apiWebsite+"alarms/v1/1day/{citykey}?apikey="+citykey+"&language=en-us&details=false",
+                HttpMethod.GET, null, new ParameterizedTypeReference<String>() {}, citykey).getBody();
+        return response;
+
+    }
+
+
+    public String get5DayOfWeatherAlarms(String cityName)
+    {
+        int citykey = this.getCitykey(cityName);
+        String response = restTemplate.exchange(apiWebsite+"alarms/v1/5day/{citykey}?apikey="+citykey+"&language=en-us&details=false",
+                HttpMethod.GET, null, new ParameterizedTypeReference<String>() {}, citykey).getBody();
+        return response;
+
+    }
+
+
+    public String get10DayOfWeatherAlarms(String cityName)
+    {
+        int citykey = this.getCitykey(cityName);
+        String response = restTemplate.exchange(apiWebsite+"alarms/v1/10day/{citykey}?apikey="+citykey+"&language=en-us&details=false",
+                HttpMethod.GET, null, new ParameterizedTypeReference<String>() {}, citykey).getBody();
+        return response;
+
+    }
+
+    public String get15DayOfWeatherAlarms(String cityName)
+    {
+        int citykey = this.getCitykey(cityName);
+        String response = restTemplate.exchange(apiWebsite+"alarms/v1/15day/{citykey}?apikey="+citykey+"&language=en-us&details=false",
+                HttpMethod.GET, null, new ParameterizedTypeReference<String>() {}, citykey).getBody();
+        return response;
+
+    }
+
+
+
+
+
 
 
 
